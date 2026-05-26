@@ -2,12 +2,12 @@
 6 # cols
 R # T(op) vs B(ottom) vs R(ight) vs L(eft)
 c # row or column number or name
-O0AABB
-O0000C
-O0XXPC
-DD0EPF
-0G0EPF
-0G0QQQ
+A00000
+ABBCD0
+XXECD0
+FFE0G0
+0HIIG0
+0HJJ00
 
 # Above the zeros are non-occupied cells.
 # In contrast, letters are vehicle names according to the game (identical letters form one vehicle).

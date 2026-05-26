@@ -5,9 +5,9 @@ c # row or column number or name
 O0A0BB
 O0A000
 O0XXCD
-EE00CD
-PPPFFG
-QQQHHG
+PPP0CD
+QQQEEF
+GGHH0F
 
 # Above the zeros are non-occupied cells.
 # In contrast, letters are vehicle names according to the game (identical letters form one vehicle).

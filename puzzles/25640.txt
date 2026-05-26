@@ -2,11 +2,11 @@
 6 # cols
 R # T(op) vs B(ottom) vs R(ight) vs L(eft)
 c # row or column number or name
-000O0P
-AA0OBP
-XX0OBP
-000QQQ
-000RRR
+000OOO
+0000AA
+XX0BC0
+D00BC0
+D00PPP
 000000
 
 # Above the zeros are non-occupied cells.
