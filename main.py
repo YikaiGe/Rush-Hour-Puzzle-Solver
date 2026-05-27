@@ -1,8 +1,8 @@
 import re
 import os
+import subprocess
 from PIL import Image
 import cv2
-import moviepy.editor as mp
 import sys
 import argparse
 
@@ -194,19 +194,26 @@ for _ in range(fps * duration_frame - 1):
 video_writer.release()
 print("Video created successfully!")
 
-# Load the video using MoviePy
-video = mp.VideoFileClip(video_output_path)
-
-# Calculate the video duration
+# Attach audio using ffmpeg directly — bypasses MoviePy's Python 3.14 incompatibility
 video_duration = len(output_image_paths) / fps + duration_frame
-
-# Load the audio file and trim it to the video duration
-audio = mp.AudioFileClip("backgroundmusic.mp3").subclip(0, video_duration)
-
-# Set the audio of the video to the trimmed audio file
-video_with_audio = video.set_audio(audio)
-
-# Save the new video with the added audio
 output_video_with_audio = os.path.join(output_folder, f"output_video_with_audio_{input_filename}.mp4")
-video_with_audio.write_videofile(output_video_with_audio, codec='libx264', audio_codec='aac')
 
+if os.path.exists("backgroundmusic.mp3"):
+    try:
+        subprocess.run([
+            "ffmpeg", "-y", "-loglevel", "error",
+            "-i", video_output_path,
+            "-i", "backgroundmusic.mp3",
+            "-c:v", "copy",
+            "-c:a", "aac",
+            "-t", str(video_duration),
+            "-shortest",
+            output_video_with_audio
+        ], check=True)
+        print("Video with audio created successfully!")
+    except FileNotFoundError:
+        print("ffmpeg not found on PATH; skipping audio. Install with: sudo apt install ffmpeg")
+    except subprocess.CalledProcessError as e:
+        print(f"ffmpeg failed (exit {e.returncode}); silent video is still available at {video_output_path}")
+else:
+    print("backgroundmusic.mp3 not found; skipping audio step. Silent video is at:", video_output_path)
