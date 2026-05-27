@@ -2,6 +2,8 @@
 
   (:requirements :typing)
 
+  (:constants X - vehicle)
+
   (:types vehicle cell )
 
   (:predicates 
