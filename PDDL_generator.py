@@ -178,7 +178,7 @@ if os.path.isfile(input_file_path):
             all_output = '(define (problem rush-hour-puzzle)\n'
             all_output += '  (:domain rush-hour)\n'
 
-            list_of_strings = two_list + three_list
+            list_of_strings = [s for s in two_list + three_list if s != "X"]
             separator = " "
             output_string = separator.join(list_of_strings)
 
