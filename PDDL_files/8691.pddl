@@ -3,6 +3,9 @@
   (:objects X A B C D E F G H I J K - vehicle  a1 a2 a3 a4 a5 a6 b1 b2 b3 b4 b5 b6 c1 c2 c3 c4 c5 c6 d1 d2 d3 d4 d5 d6 e1 e2 e3 e4 e5 e6 f1 f2 f3 f4 f5 f6 - cell )
   (:init 
 
+    ; Target vehicle.
+    (target X)
+
     ; Vehicles size and initial occupied cells. 
     (vehicleSizeTwo X c1 c2) ;A vehicle with two blocks and its initial position
     (vehicleSizeTwo A a2 b2) ;A vehicle with two blocks and its initial position
@@ -14,17 +17,18 @@
     (vehicleSizeTwo G c4 d4) ;A vehicle with two blocks and its initial position
     (vehicleSizeTwo H c5 d5) ;A vehicle with two blocks and its initial position
     (vehicleSizeTwo I c6 d6) ;A vehicle with two blocks and its initial position
-    (vehicleSizeTwo J d1 e1) ;A vehicle with two blocks and its initial position
-    (vehicleSizeTwo K e4 f4) ;A vehicle with two blocks and its initial position
+    (vehicleSizeTwo J e4 f4) ;A vehicle with two blocks and its initial position
+    (vehicleSizeTwo K f2 f3) ;A vehicle with two blocks and its initial position
 
     ; Defining initial configuration of the cell:
-    (empty a1)    (empty b1)    (empty d2)    (empty e2)    (empty e3)    (empty e5)
-    (empty e6)    (empty f1)    (empty f2)    (empty f3)    (empty f5)    (empty f6)
+    (empty a1)    (empty b1)    (empty d1)    (empty d2)    (empty e1)    (empty e2)
+    (empty e3)    (empty e5)    (empty e6)    (empty f1)    (empty f5)    (empty f6)
 
 
     ; Defining vehicle moving direction:
-    (horizontalDirection E)
     (horizontalDirection B)
+    (horizontalDirection K)
+    (horizontalDirection E)
     (horizontalDirection X)
     (verticalDirection A)
     (verticalDirection C)
@@ -34,7 +38,6 @@
     (verticalDirection H)
     (verticalDirection I)
     (verticalDirection J)
-    (verticalDirection K)
 
     ; defining the grid:
     ;horizontal relationships, what's on the right?

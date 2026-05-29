@@ -1,12 +1,11 @@
 (define (domain rush-hour)
 
   (:requirements :typing)
-
-  (:constants X - vehicle)
-
+  
   (:types vehicle cell )
 
   (:predicates 
+            (target ?v - vehicle)
             (empty ?c - cell)
             (vehicleSizeThree ?v - vehicle ?c1 - cell ?c2 - cell ?c3 - cell)
             (vehicleSizeTwo ?v - vehicle ?c1 - cell ?c2 - cell)
@@ -39,7 +38,7 @@
                         (not(vehicleSizeThree ?v ?c1 ?c2 ?c3))
                         (not (empty ?c4))
                         (not (empty ?c1))
-                        (not (empty ?c3))
+                        (not (empty ?c2))
                         (horizontalDirection ?v)
                         (empty ?c3)))
 
@@ -107,9 +106,9 @@
                         
   (:action get-out
            :parameters (?v - vehicle ?c1 ?c2 - cell)
-           :precondition (and (vehicleSizeTwo X ?c1 ?c2))
-           :effect (and (not(vehicleSizeTwo X ?c1 ?c2))
-                        (solved X ?c1 ?c2)))
+           :precondition (and (target ?v)(vehicleSizeTwo ?v ?c1 ?c2))
+           :effect (and (not(vehicleSizeTwo ?v ?c1 ?c2))
+                        (solved ?v ?c1 ?c2)))
   
 
 )

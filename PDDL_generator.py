@@ -178,7 +178,9 @@ if os.path.isfile(input_file_path):
             all_output = '(define (problem rush-hour-puzzle)\n'
             all_output += '  (:domain rush-hour)\n'
 
-            list_of_strings = [s for s in two_list + three_list if s != "X"]
+            target_vehicle = "X"
+            
+            list_of_strings = two_list + three_list
             separator = " "
             output_string = separator.join(list_of_strings)
 
@@ -318,7 +320,10 @@ if os.path.isfile(input_file_path):
 
             next_to_output += "    )\n"
 
-            all_output += "  (:init \n" + '\n' +'    ; Vehicles size and initial occupied cells. \n'
+            all_output += "  (:init \n" + '\n'
+            all_output += '    ; Target vehicle.\n'
+            all_output += f'    (target {target_vehicle})\n\n'
+            all_output += '    ; Vehicles size and initial occupied cells. \n'
             all_output += pddl_trantwo
             all_output += pddl_tranthree
             all_output += pddl_empty

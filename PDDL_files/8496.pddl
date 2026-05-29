@@ -3,13 +3,16 @@
   (:objects X A B C D E F G H O P Q - vehicle  a1 a2 a3 a4 a5 a6 b1 b2 b3 b4 b5 b6 c1 c2 c3 c4 c5 c6 d1 d2 d3 d4 d5 d6 e1 e2 e3 e4 e5 e6 f1 f2 f3 f4 f5 f6 - cell )
   (:init 
 
+    ; Target vehicle.
+    (target X)
+
     ; Vehicles size and initial occupied cells. 
     (vehicleSizeTwo X c1 c2) ;A vehicle with two blocks and its initial position
     (vehicleSizeTwo A a4 a5) ;A vehicle with two blocks and its initial position
     (vehicleSizeTwo B a6 b6) ;A vehicle with two blocks and its initial position
-    (vehicleSizeTwo C b1 b2) ;A vehicle with two blocks and its initial position
-    (vehicleSizeTwo D b4 c4) ;A vehicle with two blocks and its initial position
-    (vehicleSizeTwo E d2 d3) ;A vehicle with two blocks and its initial position
+    (vehicleSizeTwo C b4 c4) ;A vehicle with two blocks and its initial position
+    (vehicleSizeTwo D d2 d3) ;A vehicle with two blocks and its initial position
+    (vehicleSizeTwo E e3 e4) ;A vehicle with two blocks and its initial position
     (vehicleSizeTwo F e5 e6) ;A vehicle with two blocks and its initial position
     (vehicleSizeTwo G f3 f4) ;A vehicle with two blocks and its initial position
     (vehicleSizeTwo H f5 f6) ;A vehicle with two blocks and its initial position
@@ -18,21 +21,21 @@
     (vehicleSizeThree Q d4 d5 d6) ;A vehicle with three blocks and its initial position
 
     ; Defining initial configuration of the cell:
-    (empty b3)    (empty b5)    (empty c3)    (empty c5)    (empty c6)    (empty e2)
-    (empty e3)    (empty e4)    (empty f2)
+    (empty b1)    (empty b2)    (empty b3)    (empty b5)    (empty c3)    (empty c5)
+    (empty c6)    (empty e2)    (empty f2)
 
     ; Defining vehicle moving direction:
-    (horizontalDirection A)
-    (horizontalDirection O)
-    (horizontalDirection C)
-    (horizontalDirection G)
-    (horizontalDirection H)
-    (horizontalDirection Q)
-    (horizontalDirection F)
     (horizontalDirection E)
+    (horizontalDirection G)
     (horizontalDirection X)
+    (horizontalDirection H)
+    (horizontalDirection O)
+    (horizontalDirection F)
+    (horizontalDirection D)
+    (horizontalDirection Q)
+    (horizontalDirection A)
     (verticalDirection B)
-    (verticalDirection D)
+    (verticalDirection C)
     (verticalDirection P)
 
     ; defining the grid:

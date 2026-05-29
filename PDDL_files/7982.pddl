@@ -1,7 +1,10 @@
 (define (problem rush-hour-puzzle)
   (:domain rush-hour)
-  (:objects X A B C D E F G H I O - vehicle  a1 a2 a3 a4 a5 a6 b1 b2 b3 b4 b5 b6 c1 c2 c3 c4 c5 c6 d1 d2 d3 d4 d5 d6 e1 e2 e3 e4 e5 e6 f1 f2 f3 f4 f5 f6 - cell )
+  (:objects X A B C D E F G H O P - vehicle  a1 a2 a3 a4 a5 a6 b1 b2 b3 b4 b5 b6 c1 c2 c3 c4 c5 c6 d1 d2 d3 d4 d5 d6 e1 e2 e3 e4 e5 e6 f1 f2 f3 f4 f5 f6 - cell )
   (:init 
+
+    ; Target vehicle.
+    (target X)
 
     ; Vehicles size and initial occupied cells. 
     (vehicleSizeTwo X c1 c2) ;A vehicle with two blocks and its initial position
@@ -11,20 +14,20 @@
     (vehicleSizeTwo D c3 d3) ;A vehicle with two blocks and its initial position
     (vehicleSizeTwo E c4 d4) ;A vehicle with two blocks and its initial position
     (vehicleSizeTwo F c5 d5) ;A vehicle with two blocks and its initial position
-    (vehicleSizeTwo G d1 d2) ;A vehicle with two blocks and its initial position
-    (vehicleSizeTwo H e4 f4) ;A vehicle with two blocks and its initial position
-    (vehicleSizeTwo I e5 e6) ;A vehicle with two blocks and its initial position
-    (vehicleSizeThree O b2 b3 b4) ;A vehicle with three blocks and its initial position
+    (vehicleSizeTwo G e4 f4) ;A vehicle with two blocks and its initial position
+    (vehicleSizeTwo H e5 e6) ;A vehicle with two blocks and its initial position
+    (vehicleSizeThree O a2 a3 a4) ;A vehicle with three blocks and its initial position
+    (vehicleSizeThree P b2 b3 b4) ;A vehicle with three blocks and its initial position
 
     ; Defining initial configuration of the cell:
-    (empty a2)    (empty a3)    (empty a4)    (empty c6)    (empty d6)    (empty e1)
-    (empty e2)    (empty e3)    (empty f1)    (empty f2)    (empty f3)    (empty f5)
-    (empty f6)
+    (empty c6)    (empty d1)    (empty d2)    (empty d6)    (empty e1)    (empty e2)
+    (empty e3)    (empty f1)    (empty f2)    (empty f3)    (empty f5)    (empty f6)
+
 
     ; Defining vehicle moving direction:
+    (horizontalDirection H)
+    (horizontalDirection P)
     (horizontalDirection O)
-    (horizontalDirection G)
-    (horizontalDirection I)
     (horizontalDirection X)
     (verticalDirection A)
     (verticalDirection B)
@@ -32,7 +35,7 @@
     (verticalDirection D)
     (verticalDirection E)
     (verticalDirection F)
-    (verticalDirection H)
+    (verticalDirection G)
 
     ; defining the grid:
     ;horizontal relationships, what's on the right?

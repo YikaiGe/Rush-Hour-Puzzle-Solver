@@ -40,6 +40,7 @@ def convert_puzzle(input_file_path, output_file_path):
     text = ''
     lines = 6
     cols = 6
+    target_vehicle = "X"
     Exit_direction = read_file[2][0]
     Exit_row_column = read_file[3][0]
 
@@ -144,6 +145,10 @@ def convert_puzzle(input_file_path, output_file_path):
     all_output += '  (:domain rush-hour)\n'
 
     list_of_strings = two_list + three_list
+    
+    if target_vehicle not in list_of_strings:
+        raise ValueError(f"Target vehicle {target_vehicle} was not found as a size-2 or size-3 vehicle.")
+
     separator = " "
     output_string = separator.join(list_of_strings)
 
@@ -255,13 +260,16 @@ def convert_puzzle(input_file_path, output_file_path):
 
     next_to_output += "    )\n"
 
-    all_output += "  (:init \n" + '\n' + '    ; Vehicles size and initial occupied cells. \n'
+    all_output += "  (:init \n" + '\n'
+    all_output += '    ; Target vehicle.\n'
+    all_output += f'    (target {target_vehicle})\n\n'
+    all_output += '    ; Vehicles size and initial occupied cells. \n'
     all_output += pddl_trantwo
     all_output += pddl_tranthree
     all_output += pddl_empty
     all_output += pddl_direction
     all_output += next_to_output
-    all_output += '\n' + "  (:goal (and (solved X {}{} {}{}))))".format(output_exrow, output_excol,
+    all_output += '\n' + f"  (:goal (and (solved {target_vehicle} {{}}{{}} {{}}{{}}))))".format(output_exrow, output_excol,
                                                                         output_exrow_nextto,
                                                                         output_excol_nextto)
 

@@ -3,6 +3,9 @@
   (:objects X A B C D E O P - vehicle  a1 a2 a3 a4 a5 a6 b1 b2 b3 b4 b5 b6 c1 c2 c3 c4 c5 c6 d1 d2 d3 d4 d5 d6 e1 e2 e3 e4 e5 e6 f1 f2 f3 f4 f5 f6 - cell )
   (:init 
 
+    ; Target vehicle.
+    (target X)
+
     ; Vehicles size and initial occupied cells. 
     (vehicleSizeTwo X c4 c5) ;A vehicle with two blocks and its initial position
     (vehicleSizeTwo A a3 b3) ;A vehicle with two blocks and its initial position
@@ -20,12 +23,12 @@
 
 
     ; Defining vehicle moving direction:
+    (horizontalDirection E)
+    (horizontalDirection P)
+    (horizontalDirection X)
     (horizontalDirection O)
     (horizontalDirection C)
-    (horizontalDirection P)
-    (horizontalDirection E)
     (horizontalDirection D)
-    (horizontalDirection X)
     (verticalDirection A)
     (verticalDirection B)
 

@@ -1,31 +1,34 @@
 (define (problem rush-hour-puzzle)
   (:domain rush-hour)
-  (:objects X A B O P Q R - vehicle  a1 a2 a3 a4 a5 a6 b1 b2 b3 b4 b5 b6 c1 c2 c3 c4 c5 c6 d1 d2 d3 d4 d5 d6 e1 e2 e3 e4 e5 e6 f1 f2 f3 f4 f5 f6 - cell )
+  (:objects X A B C D O P - vehicle  a1 a2 a3 a4 a5 a6 b1 b2 b3 b4 b5 b6 c1 c2 c3 c4 c5 c6 d1 d2 d3 d4 d5 d6 e1 e2 e3 e4 e5 e6 f1 f2 f3 f4 f5 f6 - cell )
   (:init 
+
+    ; Target vehicle.
+    (target X)
 
     ; Vehicles size and initial occupied cells. 
     (vehicleSizeTwo X c1 c2) ;A vehicle with two blocks and its initial position
-    (vehicleSizeTwo A d5 d6) ;A vehicle with two blocks and its initial position
-    (vehicleSizeTwo B e5 e6) ;A vehicle with two blocks and its initial position
-    (vehicleSizeThree O a6 b6 c6) ;A vehicle with three blocks and its initial position
-    (vehicleSizeThree P b1 b2 b3) ;A vehicle with three blocks and its initial position
-    (vehicleSizeThree Q d1 e1 f1) ;A vehicle with three blocks and its initial position
-    (vehicleSizeThree R e2 e3 e4) ;A vehicle with three blocks and its initial position
+    (vehicleSizeTwo A a6 b6) ;A vehicle with two blocks and its initial position
+    (vehicleSizeTwo B c4 d4) ;A vehicle with two blocks and its initial position
+    (vehicleSizeTwo C c6 d6) ;A vehicle with two blocks and its initial position
+    (vehicleSizeTwo D e2 e3) ;A vehicle with two blocks and its initial position
+    (vehicleSizeThree O b3 b4 b5) ;A vehicle with three blocks and its initial position
+    (vehicleSizeThree P e4 e5 e6) ;A vehicle with three blocks and its initial position
 
     ; Defining initial configuration of the cell:
-    (empty a1)    (empty a2)    (empty a3)    (empty a4)    (empty a5)    (empty b4)
-    (empty b5)    (empty c3)    (empty c4)    (empty c5)    (empty d2)    (empty d3)
-    (empty d4)    (empty f2)    (empty f3)    (empty f4)    (empty f5)    (empty f6)
-
+    (empty a1)    (empty a2)    (empty a3)    (empty a4)    (empty a5)    (empty b1)
+    (empty b2)    (empty c3)    (empty c5)    (empty d1)    (empty d2)    (empty d3)
+    (empty d5)    (empty e1)    (empty f1)    (empty f2)    (empty f3)    (empty f4)
+    (empty f5)    (empty f6)
 
     ; Defining vehicle moving direction:
-    (horizontalDirection A)
+    (horizontalDirection D)
     (horizontalDirection P)
-    (horizontalDirection R)
-    (horizontalDirection B)
+    (horizontalDirection O)
     (horizontalDirection X)
-    (verticalDirection O)
-    (verticalDirection Q)
+    (verticalDirection A)
+    (verticalDirection B)
+    (verticalDirection C)
 
     ; defining the grid:
     ;horizontal relationships, what's on the right?

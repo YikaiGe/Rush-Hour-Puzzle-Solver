@@ -1,40 +1,43 @@
 (define (problem rush-hour-puzzle)
   (:domain rush-hour)
-  (:objects X A B C D E F G H I O P Q - vehicle  a1 a2 a3 a4 a5 a6 b1 b2 b3 b4 b5 b6 c1 c2 c3 c4 c5 c6 d1 d2 d3 d4 d5 d6 e1 e2 e3 e4 e5 e6 f1 f2 f3 f4 f5 f6 - cell )
+  (:objects X A B C D E F G H O P Q R - vehicle  a1 a2 a3 a4 a5 a6 b1 b2 b3 b4 b5 b6 c1 c2 c3 c4 c5 c6 d1 d2 d3 d4 d5 d6 e1 e2 e3 e4 e5 e6 f1 f2 f3 f4 f5 f6 - cell )
   (:init 
 
+    ; Target vehicle.
+    (target X)
+
     ; Vehicles size and initial occupied cells. 
-    (vehicleSizeTwo X c3 c4) ;A vehicle with two blocks and its initial position
-    (vehicleSizeTwo A a3 b3) ;A vehicle with two blocks and its initial position
-    (vehicleSizeTwo B a5 a6) ;A vehicle with two blocks and its initial position
-    (vehicleSizeTwo C b6 c6) ;A vehicle with two blocks and its initial position
-    (vehicleSizeTwo D c5 d5) ;A vehicle with two blocks and its initial position
-    (vehicleSizeTwo E d1 d2) ;A vehicle with two blocks and its initial position
-    (vehicleSizeTwo F e1 e2) ;A vehicle with two blocks and its initial position
-    (vehicleSizeTwo G e5 f5) ;A vehicle with two blocks and its initial position
-    (vehicleSizeTwo H f1 f2) ;A vehicle with two blocks and its initial position
-    (vehicleSizeTwo I f3 f4) ;A vehicle with two blocks and its initial position
-    (vehicleSizeThree O a1 b1 c1) ;A vehicle with three blocks and its initial position
-    (vehicleSizeThree P a2 b2 c2) ;A vehicle with three blocks and its initial position
-    (vehicleSizeThree Q d6 e6 f6) ;A vehicle with three blocks and its initial position
+    (vehicleSizeTwo X c2 c3) ;A vehicle with two blocks and its initial position
+    (vehicleSizeTwo A a1 a2) ;A vehicle with two blocks and its initial position
+    (vehicleSizeTwo B a6 b6) ;A vehicle with two blocks and its initial position
+    (vehicleSizeTwo C b4 c4) ;A vehicle with two blocks and its initial position
+    (vehicleSizeTwo D b5 c5) ;A vehicle with two blocks and its initial position
+    (vehicleSizeTwo E c6 d6) ;A vehicle with two blocks and its initial position
+    (vehicleSizeTwo F e3 f3) ;A vehicle with two blocks and its initial position
+    (vehicleSizeTwo G f1 f2) ;A vehicle with two blocks and its initial position
+    (vehicleSizeTwo H f5 f6) ;A vehicle with two blocks and its initial position
+    (vehicleSizeThree O a3 a4 a5) ;A vehicle with three blocks and its initial position
+    (vehicleSizeThree P b1 b2 b3) ;A vehicle with three blocks and its initial position
+    (vehicleSizeThree Q c1 d1 e1) ;A vehicle with three blocks and its initial position
+    (vehicleSizeThree R e4 e5 e6) ;A vehicle with three blocks and its initial position
 
     ; Defining initial configuration of the cell:
-    (empty a4)    (empty b4)    (empty b5)    (empty d3)    (empty d4)    (empty e3)
-    (empty e4)
+    (empty d2)    (empty d3)    (empty d4)    (empty d5)    (empty e2)    (empty f4)
+
 
     ; Defining vehicle moving direction:
-    (horizontalDirection H)
-    (horizontalDirection B)
-    (horizontalDirection I)
-    (horizontalDirection F)
-    (horizontalDirection E)
+    (horizontalDirection P)
+    (horizontalDirection G)
     (horizontalDirection X)
-    (verticalDirection A)
+    (horizontalDirection H)
+    (horizontalDirection O)
+    (horizontalDirection R)
+    (horizontalDirection A)
+    (verticalDirection B)
     (verticalDirection C)
     (verticalDirection D)
-    (verticalDirection G)
-    (verticalDirection O)
-    (verticalDirection P)
+    (verticalDirection E)
+    (verticalDirection F)
     (verticalDirection Q)
 
     ; defining the grid:
